@@ -47,7 +47,9 @@ public class Laboratorio2b1 {
         double total4; // v usada para sumar los totales 
         
         demo = "Reporte Gastos de Padres de Familia";
-        while (fin){ // bucle 1
+        // bucle 1 Ejecuta el programa hasta que el usario lo detenga 
+        while (fin){ 
+            // Peticion de datos que se repiten una vez por reporte
             System.out.println("Por favor, ingrese el nombre del Padre de "
                     + "Familia");
             nombre = teclado.nextLine();
@@ -62,11 +64,10 @@ public class Laboratorio2b1 {
                     + "\nReporte de Gastos \nPersona \t Pasajes \t Bar \t\t "
                     + "Salidas"
                     ,demo, n_reporte, nombre, sueldo, nhijos);
-            
-            while (contador < nhijos){ //bucle 2
-                contador ++;
-                //demo = String.format("%s\n hijo %d", demo, contador);
-                teclado.nextLine();
+            // bucle 2 usado para ingresar los gastos y sumarlos  
+            while (contador < nhijos){ 
+                contador ++; // incremento del contador
+                //Peticion de datos que se repiten varias veces en el reporte
                 System.out.printf("Por Favor ingrese el pasaje que se da al"
                         + " hijo %d\n", contador);
                 pasaje = teclado.nextFloat();
@@ -76,16 +77,16 @@ public class Laboratorio2b1 {
                 System.out.printf("Finalmente ingrese el gasto que tiene "
                         + "por salidas de su hijo %d\n", contador);
                 salida = teclado.nextFloat();
-                demo = String.format("%s \nHijo %d \t\t $ %.2f \t$ %.2f \t\t$ %.2f\n"
-                        , demo, contador ,pasaje, bar, salida);
-                
+                demo = String.format("%s \nHijo %d \t\t $ %.2f \t$ %.2f\t\t$ "
+                        + "%.2f\n", demo, contador ,pasaje, bar, salida);
+                // suma de los gastos por tipo 
                 total1 = total1 + pasaje;
                 total2 = total2 + bar;
                 total3 = total3 + salida;
                 
             }
-            total4 = total1 + total2 + total3;
-            if ( sueldo < total4){
+            total4 = total1 + total2 + total3; // suma de todos los gastos 
+            if ( sueldo < total4){ // Estructura condicional 
                 al_fal = "falta";
             } else {
                 al_fal = "alcanza";
@@ -95,6 +96,7 @@ public class Laboratorio2b1 {
                     + "para sus gastos \n\nFin reporte %d \n\n "
                     , demo, total1, total2, total3, nombre, al_fal, n_reporte);            
             n_reporte ++;
+            // mensaje al usuario para seguir en el bucle o imprimir 
             System.out.println("Por favor presione 1 si desea seguir o 2 si "
                     + "quiere salir del programa");
             pregunta = teclado.nextInt();
@@ -103,12 +105,15 @@ public class Laboratorio2b1 {
             if (pregunta ==2){
                 fin = false;
             }
-        contador = 0;
+            
+        // Re-inicialización de variables 
+        contador = 0;  
         total1 = 0;
         total2 = 0;
         total3 = 0;
         
         }
+        // impresión del demo
         System.out.println(demo);    
     }
     
